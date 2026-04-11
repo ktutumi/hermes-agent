@@ -612,7 +612,7 @@ def _exec_in_container(container_info: dict, cli_args: list):
         if val:
             env_flags.extend(["-e", f"{var}={val}"])
 
-    cmd_prefix = [shutil.which("sudo"), "-n", runtime] if needs_sudo else [runtime]
+    cmd_prefix = [sudo, "-n", runtime] if needs_sudo else [runtime]
     exec_cmd = (
         cmd_prefix + ["exec"]
         + tty_flags

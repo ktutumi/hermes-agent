@@ -684,6 +684,7 @@ HERMES_CONTAINER_MODE_EOF
                   current_target=$(readlink "${symlinkPath}")
                   if [ "$current_target" != "${target}" ]; then
                     ln -sfn "${target}" "${symlinkPath}"
+                    chown -h ${user}:${cfg.group} "${symlinkPath}"
                   fi
                 elif [ -d "${symlinkPath}" ]; then
                   # Existing real directory — backup and replace
